@@ -1,0 +1,26 @@
+{
+  "id": "a-cron-task",
+  "args": [
+    "-u",
+    "https://github.com/mesos-playground/crontask/releases/download/2017.09.16-1/crontask.tgz"
+  ],
+  "run": {
+    "cpus": 0.01,
+    "mem": 128,
+    "disk": 0,
+    "docker": {
+      "image": "mesosplayground/nsc"
+    }
+  },
+  "schedules": [
+    {
+      "id": "default",
+      "enabled": true,
+      "cron": "*/5 * * * *",
+      "timezone": "America/Boise",
+      "concurrencyPolicy": "ALLOW",
+      "startingDeadlineSeconds": 60
+    }
+  ],
+  "description": "a basic cron task"
+}
