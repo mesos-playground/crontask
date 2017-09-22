@@ -13,7 +13,7 @@
     },
     "artifacts": [
       {
-        "uri": "https://github.com/mesos-playground/crontask/releases/download/2017.09.16-1/bundle.tgz",
+        "uri": "https://github.com/mesos-playground/crontask/releases/download/2017.09.22-1/bundle.tgz",
         "extract": true,
         "executable": false,
         "cache": false
