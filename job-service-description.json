@@ -1,26 +1,41 @@
 {
   "id": "a-cron-task",
-  "args": [
-    "-u",
-    "https://github.com/mesos-playground/crontask/releases/download/2017.09.16-1/crontask.tgz"
-  ],
+  "description": "A scheduled task",
+  "labels": {},
   "run": {
     "cpus": 0.01,
     "mem": 128,
     "disk": 0,
+    "cmd": "cd $MESOS_SANDBOX\nnpm start\n",
+    "env": {},
+    "placement": {
+      "constraints": []
+    },
+    "artifacts": [
+      {
+        "uri": "https://github.com/mesos-playground/crontask/releases/download/2017.09.16-1/bundle.tgz",
+        "extract": true,
+        "executable": false,
+        "cache": false
+      }
+    ],
+    "maxLaunchDelay": 3600,
     "docker": {
-      "image": "mesosplayground/nsc"
+      "image": "node:boron"
+    },
+    "volumes": [],
+    "restart": {
+      "policy": "NEVER"
     }
   },
   "schedules": [
     {
       "id": "default",
-      "enabled": true,
+      "enabled": false,
       "cron": "*/5 * * * *",
       "timezone": "America/Boise",
       "concurrencyPolicy": "ALLOW",
-      "startingDeadlineSeconds": 60
+      "startingDeadlineSeconds": 600
     }
-  ],
-  "description": "a basic cron task"
+  ]
 }

@@ -4,7 +4,7 @@ const manifest = [
 ];
 
 const dist = 'dist';
-const bundle = dist + '/crontask.tgz';
+const bundle = dist + '/bundle.tgz';
 
 module.exports = function(grunt) {
 
@@ -33,7 +33,10 @@ module.exports = function(grunt) {
 
         compress: {
             dist: {
-                options: { archive: bundle },
+                options: { 
+                    archive: bundle,
+                    mode: "tgz" 
+                },
                 files: [{
                     expand: true,
                     //dot: true,
